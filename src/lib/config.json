@@ -1,0 +1,20 @@
+{
+  "development": {
+    "db": {
+      "endpoint": "http://localhost:8000"
+    },
+    "server": {
+      "port": 3000,
+      "sslPort": 3443
+    }
+  },
+  "production": {
+    "db": {
+      "endpoint": "https://dynamodb.eu-west-1.amazonaws.com:443"
+    },
+    "server": {
+      "port": 3000,
+      "sslPort": 3443
+    }
+  }
+}
