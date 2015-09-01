@@ -1,6 +1,4 @@
 var express = require("express");
-var http = require("http");
-var https = require("https");
 var Config = require("./lib/config");
 var dummy = require("./routes/dummy");
 
@@ -22,8 +20,6 @@ app.use(function (req, res, next) {
 
 app.get('/ping', dummy.ping);
 
-http.createServer(app).listen(conf.server.port);
-https.createServer({/* SSL certificate goes here*/}, app).listen(conf.server.sslPort);
+app.listen(conf.server.port);
 
 console.log("HTTP Server running on http://127.0.0.1:" + conf.server.port + "/");
-console.log("HTTPS Server running on http://127.0.0.1:" + conf.server.sslPort + "/");
