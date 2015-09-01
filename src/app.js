@@ -2,6 +2,7 @@ var express = require("express");
 var http = require("http");
 var https = require("https");
 var Config = require("./lib/config");
+var dummy = require("./routes/dummy");
 
 var app = express();
 var conf = new Config();
@@ -19,7 +20,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Routes can go here
+app.get('/ping', dummy.ping);
 
 http.createServer(app).listen(conf.server.port);
 https.createServer({/* SSL certificate goes here*/}, app).listen(conf.server.sslPort);
